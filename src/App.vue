@@ -18,14 +18,28 @@ export default {
 // ––––––––––––––––––––––––––––––––––––––––––––––––––
 $color-initial: #fff !default;
 $color-primary: #0e060f !default;
-$color-secondary: #606c76 !default;
+$color-secondary: #858c92 !default;
 $color-tertiary: #f4f5f6 !default;
 $color-quaternary: #d1d1d1 !default;
 $color-quinary: #e1e1e1 !default;
+$tablet: 768px;
+$desktop: 960px;
+$phone: 480px;
+:root{
+  --color-initial: #{$color-initial};
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-tertiary: #{$color-tertiary};
+  --color-quaternary: #{$color-quaternary};
+  --color-quinary: #{$color-quinary};
+  --tablet: #{$tablet};
+  --desktop: #{$desktop};
+  --phone: #{$phone};
+}
 *, *:after, *:before{
   box-sizing: inherit;
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
   // The base font-size is set at 62.5% for having the convenience
   // of sizing rems in a way that is similar to using px: 1.6rem = 16px
@@ -35,11 +49,16 @@ html{
 }
 body{
   color: $color-primary;
-  font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   font-size: 1.6em; // Currently ems cause chrome bug misinterpreting rems on body element
   font-weight: 300;
   letter-spacing: .01em;
   line-height: 1.6;
+}
+hr{
+  display: block; height: 1px;
+  border: 0; border-top: 1px solid #ccc;
+  margin: 1em 0; padding: 0;
 }
 .container {
   margin: 0 auto;
@@ -48,7 +67,21 @@ body{
   position: relative;
   width: 100%;
 }
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+.wrapper{
 
+  width: 90vw!important;
+  margin: 4rem auto 0 auto !important;
+
+}
 .row {
   display: flex;
   flex-direction: column;
@@ -93,6 +126,18 @@ body{
     margin-left: 0;
     max-width: 100%;
     width: 100%;
+    &.column-offset-5 {
+      margin-left: 10%;
+    }
+    &--left{
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+    &--right{
+      flex: 0 0 40%;
+      max-width: 40%;
+      margin-left: 5%;
+    }
 
     &.column-offset-10 {
       margin-left: 10%;
@@ -220,7 +265,6 @@ body{
   }
 }
 
-
 //Typography
 b, strong {
   font-weight: bold;
@@ -231,14 +275,14 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
+  font-weight: 700;
   letter-spacing: -.1rem;
   margin-bottom: 2.0rem;
   margin-top: 0;
 }
 
 h1 {
-  font-size: 4.6rem;
+  font-size: 3.8rem;
   line-height: 1.2;
 }
 
