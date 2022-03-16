@@ -1,9 +1,14 @@
 <template>
-  <div class="column">
+  <div class="container row color-wrapper">
+    <span class="column column-20">
     Color
-    <div class="colors">
-    <div class="color" :style="{'background-color':color}" :class="selectedColor === index? 'selected':'' " v-for="(color, index) in colors" :id="'color'+index" v-bind:key="index">
-    </div>
+    </span>
+    <div class="column column-80">
+      <div class="colors">
+        <div v-for="(color, index) in colors" :id="'color'+index" v-bind:key="index"
+             :class="selectedColor === index? 'selected':'' " :style="{'background-color':color}" class="color">
+        </div>
+      </div>
     </div>
 
   </div>
@@ -38,13 +43,22 @@ export default {
   }
 }
 </script>
-<style scoped lang="scss">
-.colors{
-  margin-bottom: 40px;
+<style lang="scss" scoped>
+.color-wrapper {
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+.title_color {
+  display: inline-block;
+}
+
+.colors {
   display: flex;
-  justify-content: center;
-  .selected{
-    &:after{
+  margin-left: 10px;
+
+  .selected {
+    &:after {
       content: "";
       width: 30px;
       height: 30px;
@@ -57,7 +71,8 @@ export default {
     }
   }
 }
-.color{
+
+.color {
   width: 16px;
   height: 16px;
   margin: 0 10px;
