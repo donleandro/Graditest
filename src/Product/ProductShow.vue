@@ -1,13 +1,16 @@
 <template>
-  <div v-if="!loading" class="container row">
-    <div class="column column-60">
+  <div v-if="!loading" class="container row wrapper">
+    <div class="column column--left">
       <ProductCarousel :images="product.images" :featured="product.featured_image"/>
     </div>
-    <div class="column column-40">
+    <div class="column column--right">
       <ProductTitle :title="product.title" :discountPrice="product.price" :price="product.price_max" />
+      <hr />
       <ProductColors :colors="product.options[0].values" />
-<!--      <ProductSizes />-->
-<!--      <ProductQuantity />-->
+      <hr />
+      <ProductSizes :sizes="product.options[1].values" />
+      <hr />
+      <ProductCta :description="product.description" :price="product.price"></ProductCta>
     </div>
   </div>
 </template>
@@ -16,13 +19,12 @@ import axios from 'axios';
 import ProductCarousel from "../Product/Components/ProductCarousel.vue";
 import ProductTitle from "../Product/Components/ProductTitle.vue";
 import ProductColors from "../Product/Components/ProductColors.vue";
-// import ProductSizes from "../Product/Components/ProductSizes.vue";
-// import ProductQuantity from "../Product/Components/ProductQuantity.vue";
+import ProductSizes from "../Product/Components/ProductSizes.vue";
+import ProductCta from "../Product/Components/ProductCta.vue";
 
 export default {
   name: "ProductShow",
-  components: {ProductCarousel, ProductTitle, ProductColors,
-    // ProductQuantity, ProductSizes
+  components: {ProductCarousel, ProductTitle, ProductColors, ProductCta,ProductSizes
   },
   data(){
     return{
@@ -75,4 +77,20 @@ export default {
     margin: auto auto;
   }
 }
+@media screen and (max-width: 768px){
+  .column{
+    &--left{
+      flex: 0 0 100%!important;
+      max-width: 100%!important;
+    }
+    &--right{
+      flex: 0 0 100%!important;
+      max-width: 100%!important;
+    }
+  }
+}
+@media (min-width: var(--phone)) and (max-width: var(--tablet)){
+
+}
+
 </style>
