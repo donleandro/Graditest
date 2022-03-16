@@ -264,6 +264,48 @@ hr{
     }
   }
 }
+//buttons
+.btn{
+  margin-bottom: 1rem;
+  letter-spacing: -0.025rem;
+  background-size: 150%;
+  background-position-x: 25%;
+  display: inline-block;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #67748e;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.4rem;
+  transition: all 0.15s ease-in;
+  &--primary{
+    background-color: #0e060f !important;
+    color: #fff;
+  }
+  &--secondary{
+    background-color: #c4c4c4 !important;
+    color:black;
+  }
+}
+.w{
+  &-25{
+    width: 25%;
+  }
+  &-50{
+    width: 50%;
+  }
+  &-100{
+    width: 100%;
+  }
+}
 
 //Typography
 b, strong {
