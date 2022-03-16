@@ -6,7 +6,9 @@
     <div class="column column-80">
       <div class="colors">
         <div v-for="(color, index) in colors" :id="'color'+index" v-bind:key="index"
-             :class="selectedColor === index? 'selected':'' " :style="{'background-color':color}" class="color">
+             :class="selectedColor === index? 'selected':'' " :style="{'background-color':color}"
+             @click="selectColor(index)"
+             class="color">
         </div>
       </div>
     </div>
@@ -27,14 +29,11 @@ export default {
       selectedColor: 0
     }
   },
-  computed: {
-    selectedColorId() {
-      return this.selectedColor ? this.selectedColor.id : null
-    }
-  },
   methods: {
-    selectColour(colour) {
-      this.selectedColor = colour
+    selectColor(index) {
+      this.selectedColor = index
+      //emit color selected
+      this.$emit('color-selected', this.colors[index])
     }
   },
   created() {
